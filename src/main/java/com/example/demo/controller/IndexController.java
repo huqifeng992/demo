@@ -1,9 +1,15 @@
 package com.example.demo.controller;
 
+import com.example.demo.ExcelModel.StudentEntity;
+import com.example.demo.reflect.Student1;
+import com.example.demo.restful.DemoException;
+import com.example.demo.restful.GlobalResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Date;
 
 /**
  * Created by huqifeng on 2017/11/21 9:52.
@@ -13,9 +19,13 @@ public class IndexController {
 
     @RequestMapping("/hello")
     @ResponseBody
-    public String hello(){
-        System.out.println("+++++++++++++++++++++进入到了hello方法中了！+++++++++++++++++++++");
-        return "hello";
+    public Object hello(){
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setId("1");
+        studentEntity.setName("huqifeng");
+        studentEntity.setSex(2);
+        studentEntity.setBirthday(new Date());
+        return GlobalResponse.success(studentEntity);
     }
 
     @RequestMapping("/index")

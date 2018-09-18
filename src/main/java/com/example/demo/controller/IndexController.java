@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.ExcelModel.StudentEntity;
-import com.example.demo.reflect.Student1;
-import com.example.demo.restful.DemoException;
 import com.example.demo.restful.GlobalResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +17,7 @@ public class IndexController {
 
     @RequestMapping("/hello")
     @ResponseBody
-    public Object hello(){
+    public Object hello() {
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setId("1");
         studentEntity.setName("huqifeng");
@@ -29,13 +27,13 @@ public class IndexController {
     }
 
     @RequestMapping("/index")
-    public String index(){
+    public String index() {
         System.out.println("+++++++++++++++++++++进入到了index方法中了！+++++++++++++++++++++");
         return "index";
     }
 
     @RequestMapping("/index1")
-    public ModelAndView index1(){
+    public ModelAndView index1() {
         ModelAndView mav = new ModelAndView("index");
         System.out.println("+++++++++++++++++++++进入到了index1方法中了！+++++++++++++++++++++");
         return mav;
